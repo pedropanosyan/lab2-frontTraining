@@ -1,0 +1,55 @@
+.homePage-container{
+    background-image: url("../../images/forest.jpg");
+    height: auto;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+
+.homePage--pokeImgContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding-top: 16px;
+}
+
+.homePage--pokeImgContainer img {
+    width: 300px;
+    height: 100%;
+    object-fit: contain;
+}
+
+.homePage--searchContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+    gap: 16px;
+    align-items: center;
+}
+
+.homePage--searchContainer input {
+    width: 50%;
+    height: 32px;
+}
+
+.homePage--searchContainer p {
+    margin: 0;
+    font-size: 20px;
+    color: white;
+    padding: 0;
+
+}
+
+.homePage--searchContainer select {
+    height: 36px;
+    padding: 8px;
+}
+
+.homePage-pokemonCardContainer {
+    display: flex;
+    width: 80%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 16px 48px;
+    gap: 24px;
+}

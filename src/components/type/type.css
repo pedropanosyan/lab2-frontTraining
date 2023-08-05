@@ -1,0 +1,13 @@
+.typeContainer {
+
+    padding: 2px 8px;
+    border-radius: 24px;
+    width: 64px;
+
+}
+
+.typeContainer p {
+    margin: 0;
+    text-align: center;
+
+}
