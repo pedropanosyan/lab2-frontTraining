@@ -1,0 +1,18 @@
+.pokemonPage-container{
+    background-image: url("../../images/forest.jpg");
+    height: auto;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100%;
+    min-width: 100%;
+    position: fixed;
+}
+
+.pokemonContainer {
+    width: 80vw;
+    height: 55vh;
+    border-radius: 16px;
+    box-shadow: 2px 2px 3px 3px rgba(1, 1, 1, 0.2);
+    margin: 100px auto;
+
+}
