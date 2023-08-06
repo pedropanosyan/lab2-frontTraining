@@ -1,0 +1,20 @@
+.pokemonInfo-container {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.pokemonInfo-container--firstRow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.pokemonInfo-container--firstRow > p {
+    margin: 0;
+}
+
+.pokemonInfo-container > p {
+    margin: 0;
+    text-align: center;
+}
