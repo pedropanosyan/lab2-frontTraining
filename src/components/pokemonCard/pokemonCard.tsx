@@ -48,7 +48,7 @@ const PokemonCard = ({ name, types, imageUrl, id }:PokemonCardProps) => {
                     </CardContent>
                     <CardActions className="pokemonCard-typesContainer">
                         {pokemonTypes.map((type, index) => (
-                            <Type type={type} />
+                            <Type shiny={false} type={type} />
                         ))}
                     </CardActions>
                 </div>
