@@ -22,7 +22,7 @@ const PokemonCard = ({ name, types, imageUrl, id }:PokemonCardProps) => {
 
     useEffect(() => {
         getTypes()
-    }, []);
+    }, [name, types]);
 
     function handleLike(value:boolean) {
         setIsLiked(value)

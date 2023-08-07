@@ -1,6 +1,7 @@
 .homePage-container{
     background-image: url("../../images/forest.jpg");
     height: auto;
+    min-height: 100vh;
     background-size: cover;
     background-attachment: fixed;
 }
