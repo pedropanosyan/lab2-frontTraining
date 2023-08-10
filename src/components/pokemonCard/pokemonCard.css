@@ -1,6 +1,5 @@
 .pokemonCard-container{
     display: inline;
-    cursor: pointer;
 
 }
 
@@ -10,6 +9,7 @@
     justify-content: center;
     background-color: white;
     opacity: 0.75;
+    cursor: pointer;
 
 }
 

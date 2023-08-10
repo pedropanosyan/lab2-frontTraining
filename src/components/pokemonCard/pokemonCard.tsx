@@ -3,6 +3,7 @@ import "./pokemonCard.css"
 import {useEffect, useState} from "react";
 import Type from "../type/type";
 import LikeIcon from "./likeIcon";
+import { useNavigate } from 'react-router-dom';
 interface PokemonCardProps {
     name:string;
     types:any[];
@@ -12,6 +13,8 @@ interface PokemonCardProps {
 
 
 const PokemonCard = ({ name, types, imageUrl, id }:PokemonCardProps) => {
+
+    const navigate = useNavigate();
 
     const [pokemonTypes, setPokemonTypes] = useState<any[]>([])
     const [isLiked, setIsLiked] =useState(false);
@@ -29,11 +32,15 @@ const PokemonCard = ({ name, types, imageUrl, id }:PokemonCardProps) => {
     }
     function capitalizeFirstLetter(word:string) { return word.charAt(0).toUpperCase() + word.slice(1);}
 
-
+    function goToPokemonPage() {
+        navigate(`/pokemon/${id}`);
+    }
+    
+    
     return (
         <div className="pokemonCard-container">
             <Card style={{borderRadius:'16px', width:'270px', height:'auto', backgroundColor:'rgb(0,0,0,0)'}}>
-                <div className="pokemonCard-imgContainer">
+                <div onClick={goToPokemonPage}  className="pokemonCard-imgContainer">
                     <CardMedia component="img" alt={name} image={imageUrl} className="pokemonCard-img" />
                 </div>
                 <div className="pokemonCard-contentContainer">
