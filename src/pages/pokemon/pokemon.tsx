@@ -23,10 +23,20 @@ function Pokemon() {
                 const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
                 if (response) {
                     setPokemon(response.data);
-                    const evolutionChainResponse = await axios.get(`https://pokeapi.co/api/v2/evolution-chain/${id}`);
-                    const evolutionChainData = evolutionChainResponse.data.chain.evolves_to;
-                    const evolutionsTemp = await getEvolutions(evolutionChainData);
-                    setEvolutions(evolutionsTemp)
+                    let evolutionsNames = []
+                    const one = await axios.get(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
+                    const url = one.data.evolution_chain.url
+                    const evolutionChainResponse = await axios.get(url)
+                    let pointer = evolutionChainResponse.data.chain;
+                    console.log(pointer)
+                    while (pointer.evolves_to.length > 0){
+                        evolutionsNames.push(pointer.species.name)
+                        pointer = pointer.evolves_to[0]
+                        console.log(evolutionsNames)
+                    }
+                    evolutionsNames.push(pointer.species.name)
+                    await findPokemonByName(evolutionsNames);
+                    console.log(evolutions)
                 }
             } catch (e) {
                 console.log(e);
@@ -34,6 +44,20 @@ function Pokemon() {
         }
         fetchData();
     }, [id]);
+
+    async function findPokemonByName(pokemon: any[]){
+        const index = pokemon.length
+        const temp = []
+        for (let i = 0; i < index; i++) {
+            const poke = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon[i]}`)
+            temp.push({
+                name: poke.data.name,
+                image: poke.data.sprites.other.dream_world.front_default
+            })
+        }
+        setEvolutions(temp);
+    }
+
     async function getEvolutions(evolutionChainData: any): Promise<any[]> {
         const evolutions: any[] = [];
         const length = evolutionChainData.length
